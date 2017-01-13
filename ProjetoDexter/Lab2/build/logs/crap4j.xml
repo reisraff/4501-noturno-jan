@@ -1,14 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2017-01-12 08:46:40</timestamp>
+  <timestamp>2017-01-12 21:37:44</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>0</methodCount>
+    <methodCount>7</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>0</totalCrap>
+    <totalCrap>7</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
-  <methods/>
+  <methods>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>getId</methodName>
+      <methodSignature>getId()</methodSignature>
+      <fullMethod>getId()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>setId</methodName>
+      <methodSignature>setId($id)</methodSignature>
+      <fullMethod>setId($id)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>getTitulo</methodName>
+      <methodSignature>getTitulo()</methodSignature>
+      <fullMethod>getTitulo()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>setTitulo</methodName>
+      <methodSignature>setTitulo($titulo)</methodSignature>
+      <fullMethod>setTitulo($titulo)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>getDescricao</methodName>
+      <methodSignature>getDescricao()</methodSignature>
+      <fullMethod>getDescricao()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>setDescricao</methodName>
+      <methodSignature>setDescricao($descricao)</methodSignature>
+      <fullMethod>setDescricao($descricao)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>global</package>
+      <className>Banner</className>
+      <methodName>isNew</methodName>
+      <methodSignature>isNew()</methodSignature>
+      <fullMethod>isNew()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+  </methods>
 </crap_result>

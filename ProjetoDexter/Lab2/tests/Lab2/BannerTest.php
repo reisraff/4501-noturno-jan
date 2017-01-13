@@ -32,8 +32,8 @@ class BannerTest extends PHPUnit_Framework_TestCase
     public function testExisteMetodoGetSetNome()
     {
         $this->banner = new Banner();
-        $this->banner->setNome('Nome Banner');
-        $this->assertSame('Nome Banner', $this->banner->getNome());
+        $this->banner->setTitulo('Nome Banner');
+        $this->assertSame('Nome Banner', $this->banner->getTitulo());
     }
     
     /**
@@ -49,21 +49,11 @@ class BannerTest extends PHPUnit_Framework_TestCase
     /**
      * @depends testExisteFile
      */
-    public function testExisteMetodoGetSetUrl()
-    {
-        $this->banner = new Banner();
-        $this->banner->setUrl('Url Banner');
-        $this->assertSame('Url Banner', $this->banner->getUrl());
-    }
-    
-    /**
-     * @depends testExisteFile
-     */
     public function testExisteMetodoIsNew()
     {
         $this->banner = new banner();
         $this->banner->setId(10);
-        $this->assertSame(false, $this->banner->isNew());
+        $this->assertSame(true, $this->banner->isNew());
     }
     
     /**
@@ -72,6 +62,6 @@ class BannerTest extends PHPUnit_Framework_TestCase
     public function testIsNewRetornoFalso()
     {
         $this->banner = new Banner();
-        $this->assertSame(true, $this->banner->isNew());
+        $this->assertSame(false, $this->banner->isNew());
     }
 }

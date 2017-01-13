@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1484218000">
-  <project timestamp="1484218000">
-    <metrics files="0" loc="0" ncloc="0" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+<coverage generated="1484264264">
+  <project timestamp="1484264264">
+    <file name="/var/www/4501-PHP/ProjetoDexter/Lab2/app/Model/Banners/Banner.php">
+      <class name="Banner" namespace="global">
+        <metrics methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
+      </class>
+      <line num="9" type="method" name="getId" crap="1" count="1"/>
+      <line num="11" type="stmt" count="1"/>
+      <line num="14" type="method" name="setId" crap="1" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="17" type="stmt" count="2"/>
+      <line num="19" type="method" name="getTitulo" crap="1" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="24" type="method" name="setTitulo" crap="1" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <line num="29" type="method" name="getDescricao" crap="1" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="34" type="method" name="setDescricao" crap="1" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="39" type="method" name="isNew" crap="1" count="2"/>
+      <line num="41" type="stmt" count="2"/>
+      <metrics loc="42" ncloc="42" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
+    </file>
+    <metrics files="1" loc="42" ncloc="42" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
   </project>
 </coverage>

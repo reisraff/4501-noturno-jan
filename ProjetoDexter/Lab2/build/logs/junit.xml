@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Unit_Tests" tests="7" assertions="7" failures="5" errors="0" time="0.033436">
+    <testsuite name="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" tests="6" assertions="6" failures="0" errors="0" time="0.028408">
+      <testcase name="testExisteFile" class="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" line="6" assertions="1" time="0.005813"/>
+      <testcase name="testExisteMetodoGetSetId" class="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" line="22" assertions="1" time="0.004469"/>
+      <testcase name="testExisteMetodoGetSetNome" class="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" line="32" assertions="1" time="0.004619"/>
+      <testcase name="testExisteMetodoGetSetDescricao" class="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" line="42" assertions="1" time="0.004420"/>
+      <testcase name="testExisteMetodoIsNew" class="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" line="52" assertions="1" time="0.004362"/>
+      <testcase name="testIsNewRetornoFalso" class="BannerTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/BannerTest.php" line="62" assertions="1" time="0.004725"/>
+    </testsuite>
+    <testsuite name="ClienteTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/ClienteTest.php" tests="1" assertions="1" failures="1" errors="0" time="0.005028">
+      <testcase name="testExisteFile" class="ClienteTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/ClienteTest.php" line="7" assertions="1" time="0.005028">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">ClienteTest::testExisteFile
+Failed asserting that false is true.
+
+/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/ClienteTest.php:17
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="FaleConoscoTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/FaleConoscoTest.php" tests="0" assertions="0" failures="1" errors="0" time="0.000000"/>
+    <testsuite name="FuncionalidadesTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/FuncionalidadeTest.php" tests="0" assertions="0" failures="1" errors="0" time="0.000000"/>
+    <testsuite name="FuncionarioTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/FuncionarioTest.php" tests="0" assertions="0" failures="1" errors="0" time="0.000000"/>
+    <testsuite name="ServicoTest" file="/var/www/4501-PHP/ProjetoDexter/Lab2/tests/Lab2/ServicoTest.php" tests="0" assertions="0" failures="1" errors="0" time="0.000000"/>
+  </testsuite>
+</testsuites>
