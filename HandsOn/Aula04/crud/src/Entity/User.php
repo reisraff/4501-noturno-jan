@@ -44,12 +44,16 @@ class User extends AbstractEntity
 				'email' => $this->email
 			]
 		);
+
+		$this->id = $this->getLastInsertedId();
 	}
 
 	public function delete()
 	{
 		$query = 'DELETE FROM users WHERE id = :id';
 		$this->executeQuery($query, ['id' => $this->id]);
+
+		return $this->getById($this->id) == null;
 	}
 
 	public function update()
@@ -69,5 +73,43 @@ class User extends AbstractEntity
 				'email' => $this->email
 			]
 		);
+	}
+
+	public function getById($id)
+	{
+		$query = 'SELECT * FROM users WHERE id = :id';
+
+		$user = $this->fetch(
+			$query, 
+			[
+				'id' => $id
+			]
+		);
+
+		if (isset($user['id'])) {
+			$this->id = $user['id'];
+			$this->setName($user['name']);
+			$this->setEmail($user['email']);
+
+			return $this;
+		} else {
+			return null;
+		}
+	}
+
+	public function getAll()
+	{
+		$return = [];
+		$usersArray = $this->fetchAll('SELECT * FROM users');
+
+		foreach ($usersArray as $user) {
+			$this->id = $user['id'];
+			$this->setName($user['name']);
+			$this->setEmail($user['email']);
+
+			$return[] = clone $this;
+		}
+
+		return $return;
 	}
 }

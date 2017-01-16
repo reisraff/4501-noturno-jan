@@ -10,8 +10,16 @@ if ($_POST) {
 	$user = new Entity\User();
 	$user->setName($_POST['name']);
 	$user->setEmail($_POST['email']);
-	var_dump($user);
-	die;
+	$user->save();
+
+	if (! empty($user->getId())) {
+		header(
+			'Location: view.php?id='
+			. $user->getId()
+		);
+	} else {
+		$erro = 'Algum Problema Aconteceu!';
+	}
 }
 
 ?>
@@ -20,6 +28,13 @@ if ($_POST) {
 	<title>Criar</title>
 </head>
 <body>
+
+	<?php
+		if (isset($erro)) {
+			echo $erro;
+			echo '<br />';
+		}
+	?>
 
 	<form method="POST">
 		<label>Name:</label><input type="text" name="name" /><br />

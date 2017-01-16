@@ -15,23 +15,28 @@ abstract class AbstractEntity implements InterfaceEntity
 
 	public function executeQuery($query, array $params = [])
 	{
-		$this->executeStmAndReturn($query, $params);
+		$stm = $this->db->prepare($query);
+		$stm->execute($params);
 	}
 
-	public function executeQueryAndReturn($query, array $params = [])
+	public function getLastInsertedId()
 	{
-		$stm = $this->executeStmAndReturn($query, $params);
-
-		// $stm->fetchObject(get_class($this));
-
-		return $stm->fetchAll(PDO::FETCH_ASSOC);
+		return $this->db->lastInsertId();
 	}
 
-	private function executeStmAndReturn($query, array $params = [])
+	public function fetch($query, array $params = [])
 	{
 		$stm = $this->db->prepare($query);
 		$stm->execute($params);
 
-		return $stm;
+		return $stm->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	public function fetchAll($query, array $params = [])
+	{
+		$stm = $this->db->prepare($query);
+		$stm->execute($params);
+
+		return $stm->fetchAll(\PDO::FETCH_ASSOC);
 	}
 }
