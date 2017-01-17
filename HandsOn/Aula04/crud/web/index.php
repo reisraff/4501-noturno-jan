@@ -44,6 +44,9 @@
   		    	<a href="delete.php?id=<?php echo $user->getId(); ?>">
   		    	Deletar
   		    	</a>
+  		    	<a href="editar.php?id=<?php echo $user->getId(); ?>">
+  		    	Editar
+  		    	</a>
   		    </td>
   		  </tr>
   		<?php

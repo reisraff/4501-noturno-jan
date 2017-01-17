@@ -32,7 +32,8 @@ Usuário não existe<br />
 </head>
 <body>
 	<a href="index.php">Voltar</a> | 
-	<a href="delete.php?id=<?php echo $user->getId(); ?>">Deletar</a>
+	<a href="delete.php?id=<?php echo $user->getId(); ?>">Deletar</a> | 
+	<a href="editar.php?id=<?php echo $user->getId(); ?>">Editar</a>
 
 	<p>
 		<label>Id:</label> <?php echo $user->getId(); ?>
