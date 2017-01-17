@@ -27,10 +27,22 @@ Usuário não existe<br />
 	}
 
 	if ($user->delete()) {
-		header('Location: index.php');
+?>
+<html>
+<head>
+	<title>Deletar</title>
+
+	<script type="javascript">
+		alert('Usuário foi deletado!');
+		location.href='index.php';
+	</script>
+</head>
+</html>
+<?php
 	} else {
 		echo '
 Usuário não foi deletado<br />
 <a href="index.php">Voltar</a>
 ';
 	}
+?>

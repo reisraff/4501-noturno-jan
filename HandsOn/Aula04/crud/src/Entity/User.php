@@ -2,6 +2,8 @@
 
 namespace Entity;
 
+use Collection\ArrayCollection;
+
 class User extends AbstractEntity
 {
 	private $id;
@@ -99,7 +101,7 @@ class User extends AbstractEntity
 
 	public function getAll()
 	{
-		$return = [];
+		$return = new ArrayCollection();
 		$usersArray = $this->fetchAll('SELECT * FROM users');
 
 		foreach ($usersArray as $user) {
@@ -107,7 +109,7 @@ class User extends AbstractEntity
 			$this->setName($user['name']);
 			$this->setEmail($user['email']);
 
-			$return[] = clone $this;
+			$return->addItem(clone $this);
 		}
 
 		return $return;
