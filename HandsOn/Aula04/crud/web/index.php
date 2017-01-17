@@ -37,7 +37,14 @@
   		    <td><?php echo $user->getId(); ?></td>
   		    <td><?php echo $user->getName(); ?></td>
   		    <td><?php echo $user->getEmail(); ?></td>
-  		    <td></td>
+  		    <td>
+  		    	<a href="view.php?id=<?php echo $user->getId(); ?>">
+  		    	Visualizar
+  		    	</a>
+  		    	<a href="delete.php?id=<?php echo $user->getId(); ?>">
+  		    	Deletar
+  		    	</a>
+  		    </td>
   		  </tr>
   		<?php
 	      	}
