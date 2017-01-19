@@ -1,10 +1,30 @@
-<?php
-
-	// foreach ($data['users'] as $user) {
-	// 	echo $user->getName() . '<br />';
-	// }
-
-
-	var_dump($data);
-
-?>
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if (count($data['users'])) : ?>
+			<?php foreach ($data['users'] as $user) : ?>
+				<tr>
+					<td><?php echo $user->getId();?></td>
+					<td><?php echo $user->getName();?></td>
+					<td><?php echo $user->getEmail();?></td>
+					<td>
+						View | 
+						Update | 
+						Delete
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		<?php else : ?>
+			<tr>
+				<td colspan="4">Nenhum Usuário</td>
+			</tr>
+		<?php endif; ?>
+	</tbody>
+</table>
