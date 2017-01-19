@@ -11,11 +11,30 @@ abstract class AbstractModel implements ModelInterface
 		$this->db = DatabaseService::getInstance();
 	}
 
-	public function fetchAll($query, array $params = [])
+	protected function fetch($query, array $params = [])
+	{
+		$stm = $this->db->prepare($query);
+		$stm->execute($params);
+
+		return $stm->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	protected function fetchAll($query, array $params = [])
 	{
 		$stm = $this->db->prepare($query);
 		$stm->execute($params);
 
 		return $stm->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	protected function executeQuery($query, array $params = [])
+	{
+		$stm = $this->db->prepare($query);
+		$stm->execute($params);
+	}
+
+	protected function getLastInsertedId()
+	{
+		return $this->db->lastInsertId();
 	}
 }

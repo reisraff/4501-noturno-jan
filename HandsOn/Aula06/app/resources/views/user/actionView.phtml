@@ -1,0 +1,16 @@
+<?php if ($data['user'] == null) : ?>
+
+	<script type="text/javascript">
+		alert('Usuário não existe!');
+		location.href='?route=user/actionList';
+	</script>
+
+<?php else : ?>
+
+	<label>Nome: </label>
+		<?php echo $data['user']->getName(); ?><br />
+
+	<label>Email: </label>
+		<?php echo $data['user']->getEmail(); ?><br />
+
+<?php endif; ?>

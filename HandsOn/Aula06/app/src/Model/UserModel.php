@@ -37,7 +37,19 @@ class UserModel extends AbstractModel
 
 	public function create()
 	{
+		$query = 'INSERT INTO
+			users (name, email)
+		VALUES (:name, :email)';
 
+		$this->executeQuery(
+			$query,
+			[
+				'name' => $this->name,
+				'email' => $this->email
+			]
+		);
+
+		$this->id = $this->getLastInsertedId();
 	}
 
 	public function update()
@@ -52,7 +64,23 @@ class UserModel extends AbstractModel
 
 	public function getById($id)
 	{
+		$query = 'SELECT * FROM users WHERE id = :id';
+		$user = $this->fetch(
+			$query,
+			[
+				'id' => $id
+			]
+		);
 
+		if (isset($user['id'])) {
+			$this->id = $user['id'];
+			$this->name = $user['name'];
+			$this->email = $user['email'];
+
+			return $this;
+		}
+
+		return null;
 	}
 
 	public function getAll()

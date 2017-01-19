@@ -1,15 +1,21 @@
 <html>
 <header>
-	<!-- <title>Sistema</title> -->
+	<title>Sistema</title>
 </header>
 <body>
+	<table width="100%">
+		<tr>
+			<td width="30%">
+				<h2>Menu</h2>
 
-	<!-- <h2>Sistema</h2> -->
-
-	<?php echo $content; ?>
-
-	<!-- <hr />
-	<h5>Rodapé</h5> -->
-
+				<a href="?route=index/index">Início</a><br />
+				<a href="?route=user/actionList">Listar Usuários</a><br />
+				<a href="?route=user/actionCreate">Criar Usuário</a><br />
+			</td>
+			<td width="70%" align="center">
+				<?php echo $content; ?>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
