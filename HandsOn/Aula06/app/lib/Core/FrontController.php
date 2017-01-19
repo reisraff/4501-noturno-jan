@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class FrontController
 {
 	public function run()
@@ -23,6 +25,15 @@ class FrontController
 			. 'Controller';
 
 		$controllerClass = new $controllerClass();
-		$controllerClass->{$action}();
+		$data = $controllerClass->{$action}($id);
+
+		$template = 'default';
+
+		if (isset($data['template'])) {
+			$template = $data['template'];
+			unset($data['template']);
+		}
+
+		View::render($pathView, $data, $template);
 	}
 }
