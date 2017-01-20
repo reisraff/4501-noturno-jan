@@ -9,6 +9,7 @@ class UserModel extends AbstractModel
 	private $id;
 	private $name;
 	private $email;
+	private $password;
 
 	public function getId()
 	{
@@ -35,17 +36,28 @@ class UserModel extends AbstractModel
 		return $this->email;
 	}
 
+	public function getPassword()
+	{
+		return $this->password;
+	}
+
+	public function setPassword($password)
+	{
+		$this->password = md5($password);
+	}
+
 	public function create()
 	{
 		$query = 'INSERT INTO
-			users (name, email)
-		VALUES (:name, :email)';
+			users (name, email, password)
+		VALUES (:name, :email, :password)';
 
 		$this->executeQuery(
 			$query,
 			[
 				'name' => $this->name,
-				'email' => $this->email
+				'email' => $this->email,
+				'password' => $this->password
 			]
 		);
 
@@ -58,7 +70,8 @@ class UserModel extends AbstractModel
 			users
 		SET
 			name = :name,
-			email = :email
+			email = :email,
+			password = :password
 		WHERE
 			id = :id';
 
@@ -68,6 +81,7 @@ class UserModel extends AbstractModel
 				'id' => $this->id,
 				'name' => $this->name,
 				'email' => $this->email,
+				'password' => $this->password,
 			]
 		);
 	}
@@ -119,5 +133,37 @@ class UserModel extends AbstractModel
 		}
 
 		return $return;
+	}
+
+	public function login($email, $password)
+	{
+		$password = md5($password);
+
+		$query = 'SELECT
+			*
+		FROM
+			users
+		WHERE
+			email = :email
+			AND password = :password
+		';
+
+		$user = $this->fetch(
+			$query,
+			[
+				'email' => $email,
+				'password' => $password
+			]
+		);
+
+		if (isset($user['id'])) {
+			$this->id = $user['id'];
+			$this->name = $user['name'];
+			$this->email = $user['email'];
+
+			return $this;
+		}
+
+		return null;
 	}
 }

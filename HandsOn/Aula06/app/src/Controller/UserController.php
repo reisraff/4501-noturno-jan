@@ -31,6 +31,7 @@ class UserController
 		if ($_POST) {
 			$user->setName($_POST['name']);
 			$user->setEmail($_POST['email']);
+			$user->setPassword($_POST['password']);
 			$user->update();
 
 			header(
@@ -50,6 +51,7 @@ class UserController
 			$user = new UserModel();
 			$user->setName($_POST['name']);
 			$user->setEmail($_POST['email']);
+			$user->setPassword($_POST['password']);
 			$user->create();
 
 			header(
