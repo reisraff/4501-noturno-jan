@@ -37,4 +37,11 @@ class IndexController
 			'message' => 'Seja Bem Vindo!'
 		];
 	}
+
+	public function logout()
+	{
+		$this->destroySession();
+
+		header('Location: ?route=index/index');
+	}
 }

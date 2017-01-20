@@ -8,4 +8,18 @@ trait SecurityAware
 	{
 		$_SESSION['user'] = $session;
 	}
+
+	public function destroySession()
+	{
+		unset($_SESSION['user']);
+	}
+
+	public function checkLogin()
+	{
+		if (isset($_SESSION['user'])) {
+			return true;
+		}
+
+		return false;
+	}
 }

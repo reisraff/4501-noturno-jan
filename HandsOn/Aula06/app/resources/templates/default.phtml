@@ -11,13 +11,24 @@
 	<?php endif; ?>
 
 	<table width="100%">
+		<?php if (isset($_SESSION['user'])) : ?>
+		<tr>
+			<td colspan="2" align="right">
+				Bem vindo: <?php echo $_SESSION['user']['name']; ?> - <?php echo $_SESSION['user']['email']; ?>
+			</td>
+		</tr>
+		<?php endif; ?>
 		<tr>
 			<td width="30%">
 				<h2>Menu</h2>
 
 				<a href="?route=index/index">Início</a><br />
 				<a href="?route=user/actionList">Listar Usuários</a><br />
-				<a href="?route=user/actionCreate">Criar Usuário</a><br />
+
+				<?php if (isset($_SESSION['user'])) : ?>
+					<a href="?route=user/actionCreate">Criar Usuário</a><br />
+					<a href="?route=index/logout">Logout</a><br />
+				<?php endif; ?>
 			</td>
 			<td width="70%" align="center">
 				<?php echo $content; ?>

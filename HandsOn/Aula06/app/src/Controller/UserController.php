@@ -6,8 +6,12 @@ use Model\UserModel;
 
 class UserController
 {
+	use Behavior\SecurityAware;
+
 	public function actionView($id)
 	{
+		$this->checkUser();
+
 		$userModel = new UserModel();
 		$user = $userModel->getById($id);
 
@@ -18,6 +22,8 @@ class UserController
 
 	public function actionEdit($id)
 	{
+		$this->checkUser();
+
 		$userModel = new UserModel();
 		$user = $userModel->getById($id);
 
@@ -47,6 +53,8 @@ class UserController
 
 	public function actionCreate()
 	{
+		$this->checkUser();
+
 		if ($_POST) {
 			$user = new UserModel();
 			$user->setName($_POST['name']);
@@ -63,6 +71,8 @@ class UserController
 
 	public function actionDelete($id)
 	{
+		$this->checkUser();
+
 		$userModel = new UserModel();
 		$user = $userModel->getById($id);
 
@@ -86,5 +96,15 @@ class UserController
 		return [
 			'users' => $users
 		];
+	}
+
+	private function checkUser()
+	{
+		if (! $this->checkLogin()) {
+			$_SESSION['message_error'] = 'Necessário Autenticação!';
+
+			header('Location: ?route=index/index');
+			die();
+		}
 	}
 }
