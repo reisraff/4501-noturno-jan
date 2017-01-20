@@ -1,4 +1,4 @@
-<?php if ($data['user'] == null) : ?>
+<?php if ($user == null) : ?>
 
 	<script type="text/javascript">
 		alert('Usuário não existe!');
@@ -8,9 +8,9 @@
 <?php else : ?>
 
 	<label>Nome: </label>
-		<?php echo $data['user']->getName(); ?><br />
+		<?php echo $user->getName(); ?><br />
 
 	<label>Email: </label>
-		<?php echo $data['user']->getEmail(); ?><br />
+		<?php echo $user->getEmail(); ?><br />
 
 <?php endif; ?>

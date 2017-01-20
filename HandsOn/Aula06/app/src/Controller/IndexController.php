@@ -6,6 +6,8 @@ class IndexController
 {
 	public function index()
 	{
-		return 'Seja Bem Vindo!';
+		return [
+			'message' => 'Seja Bem Vindo!'
+		];
 	}
 }

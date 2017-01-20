@@ -4,8 +4,18 @@ namespace Core;
 
 class View
 {
-	public static function render($view, $data, $template = 'default')
+	public static function render($view, array $data, $template = 'default')
 	{
+		foreach ($data as $key => $value) {
+			$$key = $value;
+		}
+
+		if (isset($data['data'])) {
+			$data = $data['data'];
+		} else {
+			unset($data);
+		}
+
 		ob_start();
 
 		include __DIR__
@@ -15,7 +25,6 @@ class View
 
 		$content = ob_get_contents();
 		ob_end_clean();
-		unset($data);
 
 		include __DIR__
 			. '/../../resources/templates/'

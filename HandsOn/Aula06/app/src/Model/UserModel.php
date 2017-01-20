@@ -54,12 +54,31 @@ class UserModel extends AbstractModel
 
 	public function update()
 	{
+		$query = 'UPDATE
+			users
+		SET
+			name = :name,
+			email = :email
+		WHERE
+			id = :id';
 
+		$this->executeQuery(
+			$query,
+			[
+				'id' => $this->id,
+				'name' => $this->name,
+				'email' => $this->email,
+			]
+		);
 	}
 
 	public function delete()
 	{
+		$query = 'DELETE FROM users WHERE id = :id';
 
+		$this->executeQuery($query, ['id' => $this->id]);
+
+		return $this->getById($this->id) == null;
 	}
 
 	public function getById($id)

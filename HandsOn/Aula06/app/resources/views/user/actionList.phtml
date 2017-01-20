@@ -8,8 +8,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php if (count($data['users'])) : ?>
-			<?php foreach ($data['users'] as $user) : ?>
+		<?php if (count($users)) : ?>
+			<?php foreach ($users as $user) : ?>
 				<tr>
 					<td><?php echo $user->getId();?></td>
 					<td><?php echo $user->getName();?></td>
@@ -21,7 +21,9 @@
 						<a href="?route=user/actionEdit/<?php echo $user->getId(); ?>">
 							Editar
 						</a> | 
-						Deletar
+						<a href="?route=user/actionDelete/<?php echo $user->getId(); ?>">
+							Deletar
+						</a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

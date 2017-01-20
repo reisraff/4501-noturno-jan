@@ -6,6 +6,8 @@ class FrontController
 {
 	public function run()
 	{
+		session_start();
+
 		$route = isset($_GET['route']) ?
 			$_GET['route'] :
 			'index/index';
@@ -27,6 +29,8 @@ class FrontController
 		$controllerClass = new $controllerClass();
 		$data = $controllerClass->{$action}($id);
 
+		$data = is_array($data) ? $data : [];
+
 		$template = 'default';
 
 		if (isset($data['template'])) {
@@ -35,5 +39,11 @@ class FrontController
 		}
 
 		View::render($pathView, $data, $template);
+
+		unset(
+			$_SESSION['message_info'],
+			$_SESSION['message_warning'],
+			$_SESSION['message_error']
+		);
 	}
 }

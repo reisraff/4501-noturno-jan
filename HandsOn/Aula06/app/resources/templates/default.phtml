@@ -3,6 +3,13 @@
 	<title>Sistema</title>
 </header>
 <body>
+
+	<?php if (isset($_SESSION['message_error'])) : ?>
+		<script type="text/javascript">
+			alert("<?php echo $_SESSION['message_error']; ?>");
+		</script>
+	<?php endif; ?>
+
 	<table width="100%">
 		<tr>
 			<td width="30%">

@@ -21,6 +21,24 @@ class UserController
 		$userModel = new UserModel();
 		$user = $userModel->getById($id);
 
+		if ($user == null) {
+			$_SESSION['message_error'] = 'Usuário não existe!';
+
+			header('Location: ?route=user/actionList');
+			die();
+		}
+
+		if ($_POST) {
+			$user->setName($_POST['name']);
+			$user->setEmail($_POST['email']);
+			$user->update();
+
+			header(
+				'Location: ?route=user/actionView/'
+				. $user->getId()
+			);
+		}
+
 		return [
 			'user' => $user
 		];
@@ -34,9 +52,28 @@ class UserController
 			$user->setEmail($_POST['email']);
 			$user->create();
 
-			// @todo alterar para user/view/:id
-			header('Location: ?route=user/actionList');
+			header(
+				'Location: ?route=user/actionView/'
+				. $user->getId()
+			);
 		}
+	}
+
+	public function actionDelete($id)
+	{
+		$userModel = new UserModel();
+		$user = $userModel->getById($id);
+
+		if ($user == null) {
+			$_SESSION['message_error'] = 'Usuário não existe!';
+
+			header('Location: ?route=user/actionList');
+			die();
+		}
+
+		$user->delete();
+
+		header('Location: ?route=user/actionList');
 	}
 
 	public function actionList()

@@ -1,0 +1,17 @@
+<form method="POST">
+	<label>Name: </label>
+	<input type="text"
+		name="name"
+		value="<?php echo $user->getName(); ?>" />
+	<br />
+
+	<label>Email: </label>
+	<input type="text"
+		name="email"
+		value="<?php echo $user->getEmail(); ?>" />
+	<br />
+
+	<p>
+		<input type="submit" value="Editar" />
+	</p>
+</form>
